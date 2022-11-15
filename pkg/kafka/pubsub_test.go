@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/ThreeDotsLabs/watermill"
-	"github.com/ThreeDotsLabs/watermill-kafka/v2/pkg/kafka"
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/message/subscriber"
 	"github.com/ThreeDotsLabs/watermill/pubsub/tests"
+	"github.com/codingDr/watermill-kafka/v2/pkg/kafka"
 )
 
 func kafkaBrokers() []string {
@@ -93,12 +93,12 @@ func generatePartitionKey(topic string, msg *message.Message) (string, error) {
 	return msg.Metadata.Get("partition_key"), nil
 }
 
-func createPubSubWithConsumerGrup(t *testing.T, consumerGroup string) (message.Publisher, message.Subscriber) {
+func createPubSubWithConsumerGroup(t *testing.T, consumerGroup string) (message.Publisher, message.Subscriber) {
 	return newPubSub(t, kafka.DefaultMarshaler{}, consumerGroup)
 }
 
 func createPubSub(t *testing.T) (message.Publisher, message.Subscriber) {
-	return createPubSubWithConsumerGrup(t, "test")
+	return createPubSubWithConsumerGroup(t, "test")
 }
 
 func createPartitionedPubSub(t *testing.T) (message.Publisher, message.Subscriber) {
@@ -121,7 +121,7 @@ func TestPublishSubscribe(t *testing.T) {
 		t,
 		features,
 		createPubSub,
-		createPubSubWithConsumerGrup,
+		createPubSubWithConsumerGroup,
 	)
 }
 
@@ -139,7 +139,7 @@ func TestPublishSubscribe_ordered(t *testing.T) {
 			Persistent:          true,
 		},
 		createPartitionedPubSub,
-		createPubSubWithConsumerGrup,
+		createPubSubWithConsumerGroup,
 	)
 }
 
