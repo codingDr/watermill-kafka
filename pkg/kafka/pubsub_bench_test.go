@@ -3,8 +3,6 @@ package kafka_test
 import (
 	"testing"
 
-	"github.com/Shopify/sarama"
-
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/codingDr/watermill-kafka/v2/pkg/kafka"
 	"github.com/ThreeDotsLabs/watermill/message"
@@ -23,14 +21,14 @@ func BenchmarkSubscriber(b *testing.B) {
 			panic(err)
 		}
 
-		saramaConfig := kafka.DefaultSaramaSubscriberConfig()
-		saramaConfig.Consumer.Offsets.Initial = sarama.OffsetOldest
+		kafkaConfig := kafka.DefaultKafkaConfig()
+		
 
 		subscriber, err := kafka.NewSubscriber(
 			kafka.SubscriberConfig{
 				Brokers:               kafkaBrokers(),
 				Unmarshaler:           kafka.DefaultMarshaler{},
-				OverwriteSaramaConfig: saramaConfig,
+				KafkaConfig: kafkaConfig,
 				ConsumerGroup:         "test",
 			},
 			logger,
