@@ -8,7 +8,7 @@ import (
 
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"
-	"github.com/codingDr/watermill-kafka/v2/pkg/kafka"
+	"github.com/codingDr/watermill-kafka/pkg/kafka"
 )
 
 func TestDefaultMarshaler_MarshalUnmarshal(t *testing.T) {

@@ -14,7 +14,7 @@ import (
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/pubsub/tests"
-	"github.com/codingDr/watermill-kafka/v2/pkg/kafka"
+	"github.com/codingDr/watermill-kafka/pkg/kafka"
 )
 
 

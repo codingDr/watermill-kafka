@@ -1,4 +1,4 @@
-module github.com/codingDr/watermill-kafka/v2
+module github.com/codingDr/watermill-kafka
 
 require (
 	github.com/Shopify/sarama v1.32.0
