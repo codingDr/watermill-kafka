@@ -1,8 +1,8 @@
 # Watermill Kafka Pub/Sub
 <img align="right" width="200" src="https://threedots.tech/watermill-io/watermill-logo.png">
 
-[![CI Status](https://github.com/ThreeDotsLabs/watermill-kafka/actions/workflows/master.yml/badge.svg)](https://github.com/ThreeDotsLabs/watermill-kafka/actions/workflows/master.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/ThreeDotsLabs/watermill-kafka)](https://goreportcard.com/report/github.com/ThreeDotsLabs/watermill-kafka)
+[![CI Status](https://github.com/codingDr/watermill-kafka/actions/workflows/master.yml/badge.svg)](https://github.com/codingDr/watermill-kafka/actions/workflows/master.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/codingDr/watermill-kafka)](https://goreportcard.com/report/github.com/codingDr/watermill-kafka)
 
 This is Pub/Sub for the [Watermill](https://watermill.io/) project.
 
