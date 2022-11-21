@@ -51,7 +51,7 @@ func (c *SubscriberConfig) setBrokers() (err error) {
 // NewSubscriber creates a new Kafka Subscriber.
 func NewSubscriber(config SubscriberConfig, logger watermill.LoggerAdapter) (*Subscriber, error) {
 	subscriber_uuid := watermill.NewShortUUID()
-	
+
 	if len(config.Brokers) == 0 {
 		return nil, errors.New("missing brokers")
 	}
@@ -67,7 +67,7 @@ func NewSubscriber(config SubscriberConfig, logger watermill.LoggerAdapter) (*Su
 	if config.ConsumerGroup != "" {
 		config.KafkaConfig.Set("group.id=" + config.ConsumerGroup)
 	} else {
-		config.KafkaConfig.Set("group.id="+subscriber_uuid)
+		config.KafkaConfig.Set("group.id=" + subscriber_uuid)
 	}
 
 	if logger == nil {

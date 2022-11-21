@@ -14,7 +14,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-
 func kafkaBrokers() []string {
 	brokers := os.Getenv("WATERMILL_TEST_KAFKA_BROKERS")
 	if brokers != "" {
@@ -118,4 +117,3 @@ func TestNoGroupSubscriber(t *testing.T) {
 		nil,
 	)
 }
-
