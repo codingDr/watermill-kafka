@@ -1,20 +1,17 @@
 package kafka_test
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/pubsub/tests"
 	"github.com/codingDr/watermill-kafka/pkg/kafka"
+	"github.com/stretchr/testify/require"
 )
 
 
@@ -122,22 +119,3 @@ func TestNoGroupSubscriber(t *testing.T) {
 	)
 }
 
-func TestNewPubSub(t *testing.T) {
-	pub, sub := newPubSub(t, kafka.DefaultMarshaler{}, "testGroup")
-	defer pub.Close()
-	defer sub.Close()
-
-	output, err := sub.Subscribe(context.Background(), "test-topic")
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	time.Sleep(time.Millisecond * 500)
-	msg := &message.Message{UUID: watermill.NewShortUUID(), Payload: []byte("test-payload")}
-	pub.Publish("test-topic", msg)
-	t.Log("Published Msg", msg)
-	consumedMessage := <-output
-	consumedMessage.Ack()
-	t.Log("Consumed Msg", consumedMessage)
-	assert.True(t, msg.Equals(consumedMessage))
-}

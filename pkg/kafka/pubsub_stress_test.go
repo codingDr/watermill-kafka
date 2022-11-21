@@ -18,20 +18,6 @@ func TestPublishSubscribe_stress(t *testing.T) {
 			Persistent:          true,
 		},
 		createPubSub,
-		createPubSubWithConsumerGrup,
-	)
-}
-
-func TestPublishSubscribe_ordered_stress(t *testing.T) {
-	tests.TestPubSubStressTest(
-		t,
-		tests.Features{
-			ConsumerGroups:      true,
-			ExactlyOnceDelivery: false,
-			GuaranteedOrder:     true,
-			Persistent:          true,
-		},
-		createPartitionedPubSub,
-		createPubSubWithConsumerGrup,
+		createPubSubWithConsumerGroup,
 	)
 }
